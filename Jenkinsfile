@@ -1,4 +1,5 @@
 pipeline{
+	agent any
 	
 	tools{
 		maven 'Maven 3.8.2'
@@ -21,7 +22,7 @@ pipeline{
 			steps {
 			echo 'Packaging...'
 			sh 'mvn -DskipTests package'
-			archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+			archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
 			}
 		}
 	}
